@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
+        <meta name="viewport" content="width-device-width,initial-scale=1">
+        <link rel="stylesheet" href="normalize.css">
+        <style>
+          body{
+          	font-family: "微软雅黑";
+          	background-color: #ddd;
+          	font-weight: 400;
+          	font-size: 15px;
+          	color: #333;
+          	overflow: hidden;
+          	-webkit-font-smoothing: antialiased;
+          }
+          a{
+          	text-decoration: none;
+          	color:#555;
+          }
+          .clr{
+          	width: 0;
+          	height: 0;
+          	overflow: hidden;
+          	clear: both;
+          	padding: 0;
+          	margin: 0;
+          }
+          .st-container{
+          	width:100%;
+          	height: 100%;
+          	position:absolute;
+          	left: 0;
+          	top: 0;
+          }
+          .st-container a,.st-container input{
+          	width: 20%;
+          	height: 34px;
+            line-height: 34px;
+            position: fixed;
+            bottom: 0;
+          }
+          .st-container input{
+             opacity: 0;
+             z-index: 2;
+          }
+          .st-container a{
+          	z-index: 1;
+          	font-weight: 700;
+          	font-size: 16px;
+          	background: #e23a6e;
+          	text-align: center;
+          	color: #fff;
+          	text-shadow: 1px 1px 1px rgba(151,24,64,0.2);
+          	cursor: pointer;
+          }
+          #st-control-1,#st-control-1+a{
+          	left: 0%;
+          }
+          #st-control-2,#st-control-2+a{
+          	left: 20%;
+          }
+           #st-control-3,#st-control-3+a{
+          	left: 40%;
+          }
+           #st-control-4,#st-control-4+a{
+          	left: 60%;
+          }
+           #st-control-5,#st-control-5+a{
+          	left: 80%;
+          }
+          .st-container input:checked+a,
+          .st-container input:checked:hover+a
+          {
+             background: #821134;
+          }
+          .st-container input:checked +a:after{
+             content: "";
+             width: 0;
+             height: 0;
+             overflow: hidden;
+             border: 20px solid transparent;
+             border-bottom-color:#821134;
+             position: absolute;
+             bottom: 100%;
+             left: 50%;
+             margin-left: -20px;
+          }
+          .st-container input:hover+a{
+              background: #AD244f;
+          }
+          /* 内容区 */
+          .st-scroll,.st-panel{
+          	width: 100%;
+          	height:100%;
+          	position:relative;
+          }
+          .st-scroll{
+          	left: 0;
+          	top: 0;
+          	-webkit-transform:translate3d(0,0,0);
+          	-moz-transform:translate3d(0,0,0);
+          	-ms-transform:translate3d(0,0,0);
+          	-o-transform:translate3d(0,0,0);
+	          transform:translate3d(0,0,0);
+	          backface-visibility: hidden;
+	          -webkit-transition: all 0.6s ease-in-out;
+          }
+          .st-panel{
+             background: #fff;
+             overflow: hidden;
+          }
+
+          #st-control-1:checked ~ .st-scroll{
+              -webkit-transform: translateY(0%) ;
+              -moz-transform: translateY(0%);
+              -ms-transform: translateY(0%);
+              -o-transform: translateY(0%);
+              transform: translateY(0%);
+          }
+          #st-control-2:checked ~ .st-scroll{
+              -webkit-transform: translateY(-100%);
+              -moz-transform: translateY(-100%);
+              -ms-transform: translateY(-100%);
+              -o-transform: translateY(-100%);
+              transform: translateY(-100%);
+          }
+           #st-control-3:checked ~ .st-scroll{
+              -webkit-transform: translateY(-200%);
+              -moz-transform: translateY(-200%);
+              -ms-transform: translateY(-200%);
+              -o-transform: translateY(-200%);
+              transform: translateY(-200%);
+          }
+           #st-control-4:checked ~ .st-scroll{
+              -webkit-transform: translateY(-300%);
+              -moz-transform: translateY(-300%);
+              -ms-transform: translateY(-300%);
+              -o-transform: translateY(-300%);
+              transform: translateY(-300%);
+          }
+           #st-control-5:checked ~ .st-scroll{
+              -webkit-transform: translateY(-400%);
+              -moz-transform: translateY(-400%);
+              -ms-transform: translateY(-400%);
+              -o-transform: translateY(-400%);
+              transform: translateY(-400%);
+          }
+          .st-desc{
+          	width: 200px;
+          	height: 200px;
+          	background:#fa92b5;
+          	position: absolute;
+          	left: 50%;
+          	top: 0;
+          	margin-left: -100px;
+          	-webkit-transform:translateY(-50%) rotate(45deg);
+           }
+           [data-icon]:after{
+           	content:attr(data-icon);
+           	width: 200px;
+           	height: 200px;
+           	font-size: 90px;
+           	color: #fff;
+           	text-align: center;
+           	line-height: 200px;
+           	position: absolute;
+           	left: 50%;
+           	top: 50%;
+           	margin: -100px 0 0 -100px;
+           	-webkit-transform: rotate(-45deg)  translateY(25%);
+           }
+           .st-panel h2{
+            color: #e23a6e;
+            font-size: 54px;
+            line-height: 50px;
+            text-align: center;
+            font-weight:900;
+            width: 80%;
+            position: absolute;
+            top: 20%;
+            left: 10%;        
+           }
+           @keyframes moveDown{
+            0%{
+              -webkit-transform: translateY(-40px);
+              opacity: 0;
+            }
+            100%{
+              -webkit-transform: translateY(0px);
+              opacity: 1;
+            }
+           }
+           #st-control-1:checked~.st-scroll #st-panel-1 h2, #st-control-2:checked~.st-scroll #st-panel-2 h2, #st-control-3:checked~.st-scroll #st-panel-3 h2, #st-control-4:checked~.st-scroll #st-panel-4 h2, #st-control-5:checked~.st-scroll #st-panel-5 h2{
+              -webkit-animation:moveDown 0.6s ease-in-out 0.2s backwards;
+           }
+           .st-panel p{
+            position: absolute;
+            width: 50%;
+            left: 25%;
+            top: 35%;
+            font-size: 16px;
+            line-height: 22px;
+            padding: 0;
+            text-align: center;
+            color: #8b8b8b;
+            margin-top: 10px;
+           }
+            @keyframes moveUp{
+            0%{
+              -webkit-transform: translateY(40px);
+              opacity: 0;
+            }
+            100%{
+              -webkit-transform: translateY(0px);
+              opacity: 1;
+            }
+           }
+           #st-control-1:checked~.st-scroll #st-panel-1 p, #st-control-2:checked~.st-scroll #st-panel-2 p, #st-control-3:checked~.st-scroll #st-panel-3 p, #st-control-4:checked~.st-scroll #st-panel-4 p, #st-control-5:checked~.st-scroll #st-panel-5 p{
+              -webkit-animation:moveUp 0.6s ease-in-out 0.2s backwards;
+           }
+           .st-col{
+              background: #fa92b5;
+          }
+          .st-col .st-desc{
+            background: #fff;
+          }
+          .st-col [data-icon]:after{
+            color:#fa92b5;
+          } 
+          .st-col h2{
+            color:white;
+          }
+          .st-col p{
+            color: #fff;
+          }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+          <div class="st-container">
+             <input type="radio" name="radio-set" checked="checked" id="st-control-1">
+             <a href="#st-panel-1">Serendipity</a>
+             <input type="radio" name="radio-set" id="st-control-2">
+             <a href="#st-panel-2">Happiness</a>
+             <input type="radio" name="radio-set" id="st-control-3">
+             <a href="#st-panel-3">Trination</a>
+             <input type="radio" name="radio-set" id="st-control-4">
+             <a href="#st-panel-4">Xingfu</a>
+             <input type="radio" name="radio-set" id="st-control-5">
+             <a href="#st-panel-5">Hunyin</a>
+              <div class="st-scroll">
+               <section class="st-panel" id="st-panel-1">
+	               	<div class="st-desc" data-icon="H"></div>
+	               	<h2>Serendipity</h2>
+	               	<p>dwcscds sdsdscds</p>
+               </section>
+                <section class="st-panel st-col" id="st-panel-2">
+	               	<div class="st-desc" data-icon="2"></div>
+	               	<h2>Happiness</h2>
+	               	<p>dwcscds sdsdscds</p>
+               </section>
+               <section class="st-panel" id="st-panel-3">
+	               	<div class="st-desc" data-icon="8"></div>
+	               	<h2>Trination</h2>
+	               	<p>dwcscds sdsdscds</p>
+               </section>
+               <section class="st-panel st-col" id="st-panel-4">
+	               	<div class="st-desc" data-icon="H"></div>
+	               	<h2>Xingfu</h2>
+	               	<p>dwcscds sdsdscds</p>
+               </section>
+               <section class="st-panel" id="st-panel-5">
+	               	<div class="st-desc" data-icon="H"></div>
+	               	<h2>Hunyin</h2>
+	               	<p>dwcscds sdsdscds</p>
+               </section>
+            </div>
+           </div>
+          
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,272 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>The Golden Template | Home </title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+	 	<!---strat-slider---->
+	    <link rel="stylesheet" type="text/css" href="css/slider.css" />
+		<script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+		<script type="text/javascript" src="js/jquery.cslider.js"></script>
+			<script type="text/javascript">
+				$(function() {
+				
+					$('#da-slider').cslider({
+						autoplay	: true,
+						bgincrement	: 450
+					});
+				
+				});
+			</script>
+		<!---//strat-slider---->
+		 <!-- scroll -->
+		 <script type="text/javascript">
+			$(document).ready(function() {
+			
+				var defaults = {
+		  			containerID: 'toTop', // fading element id
+					containerHoverID: 'toTopHover', // fading element hover id
+					scrollSpeed: 1200,
+					easingType: 'linear' 
+		 		};
+				
+				
+				$().UItoTop({ easingType: 'easeOutQuart' });
+				
+			});
+		</script>
+		 <!-- //scroll -->
+
+</head>
+<body>
+	<!-- start slider -->
+<div class="slider_bg">
+			<!-- start header -->
+	<div class="wrap">
+			<div class="header">
+				<div class="logo">
+					<a href="index.html"></a>
+				</div>
+		<!-- start top-nav-->
+		<div class="h_right">
+			<ul class="menu">		
+				<li class="active"><a  href="#home">首页</a></li>
+				<li><a href="#services" class="scroll">技能</a></li>
+				<li><a href="#portfolio" class="scroll">项目</a></li>
+				<li><a href="#about" class="scroll">关于我</a></li>
+				<li class="last"><a href="#contact"  class="scroll">联系我</a></li>
+			</ul>			
+			<!-- start smart_nav * -->
+	        <nav class="nav">
+	            <ul class="nav-list">
+	                <li class="nav-item"><a  href="#home">首页</a></li>
+	                <li class="nav-item"><a href="#services" class="scroll">技能</a></li>
+	                <li class="nav-item"><a href="#portfolio" class="scroll">项目</a></li>	            
+	                <li class="nav-item"><a href="#about" class="scroll">关于我</a></li>
+	                <li class="nav-item"><a href="#contact"  class="scroll">联系我</a></li>
+	                <div class="clear"></div>
+	            </ul>
+	        </nav>
+	        <script type="text/javascript" src="js/responsive.menu.js"></script>
+			<!-- end smart_nav * -->
+		</div>
+		<div class="clear"></div>
+
+			</div>
+			</div>
+				<div id="da-slider" class="da-slider">
+				<div class="da-slide">
+					<p>欢迎来到我的主页!</p>
+					<h2>很高兴见到你</h2>
+					<p class="a"><a href="#">联系我</a></p>
+				</div>
+				<div class="da-slide">
+					<p>我是路少楠</p>
+					<h2>想要了解我吗</h2>
+					<p class="a"><a href="#">联系我</a></p>
+				</div>
+				<div class="da-slide">
+					<p>欢迎来到我的主页!</p>
+					<h2>很高兴见到你</h2>
+					<p class="a"><a href="#">联系我</a></p>
+				</div>
+				<div class="da-slide">
+					<p>我是路少楠</p>
+					<h2>想要了解我吗</h2>
+					<p class="a"><a href="#">联系我</a></p>
+				</div>	
+				<nav class="da-arrows">
+					<span class="da-arrows-prev"></span>
+					<span class="da-arrows-next"></span>
+				</nav>
+			</div>
+ 		</div>
+		  <div class="services" id="services">
+		  	<div class="wrap">
+		  		<h3>个人技能</h3>
+		  		<p>技术</p>
+				<div class="col_1_of_3 span_1_of_3">
+					<img src="images/service1.png" alt=""/>
+					<h4><a href="#">前端技术</a></h4>
+					<p>1.熟练掌握HTML/CSS相关的知识，能够编够熟练完成各种复杂静态页面的开发.
+2.熟练掌握JavaScript,能够写基本的原生js代码,并且实现一些特效以及交互效果.
+3.熟练掌握Ajax异步请求,,获取后台数据,实现网站前后端交互.
+4.熟悉jQuery,了解基本原理,能用其实现页面特效.
+熟悉 H5/CSS3新技术，能够使用canvas图片视频音频的绘制等,并能够使用CSS3实现各种动画效果.</p>
+				</div>
+				<div class="col_1_of_3 span_1_of_3">
+					<img src="images/service2.png" alt=""/>
+					<h4><a href="#">后台技术</a></h4>
+					<p>了解php,Nodejs等后台语言,了解MySQL,Oracle,Sql Server,mongoDb等数据库相关知识,能够配合后台人员更好的实现页面的交互性.
+9.了解模块化开发工具(工作流),例如gulp,webpack.</p>
+				</div>
+				<div class="col_1_of_3 span_1_of_3">
+					<img src="images/service3.png" alt=""/>
+					<h4><a href="#">前端框架</a></h4>
+					<p>1.熟悉Bootstrap框架技术，能实现页面的响应式布局；
+2.熟悉AngularJS框架,熟悉它的双向数据绑定,能够用其实现单页面网站.3.了解React框架,了解基本用法，使用JSX语法实现React组件的复用
+4.了解移动端开发框架zepto,能够开发移动端项目.</p>
+				</div>
+				 <div class="clear"></div>
+   		   </div>
+   		 </div>
+ 		<div class="portfolio" id="portfolio">
+		  	<div class="wrap">
+		  		<h3>个人项目</h3>
+		  		<p>作品展示</p>
+			<div class="col_1_of_3 span_1_of_3">
+					  <div class="view view-fourth">
+                        <img src="images/port1.jpg">
+	                    <div class="mask">
+	                        <h2>在线音乐</h2>
+	                        <p></p>
+	                        <a href="musics/index.html" class="info">更多</a>
+	                    </div>
+                	</div>
+				</div>
+				<div class="col_1_of_3 span_1_of_3">
+					 <div class="view view-fourth">
+                        <img src="images/port2.jpg">
+	                    <div class="mask">
+	                        <h2>2048</h2>
+	                        <p></p>
+	                        <a href="2048/index.html" class="info">更多</a>
+	                    </div>
+                	</div>
+				</div>
+				<div class="col_1_of_3 span_1_of_3">
+					 <div class="view view-fourth">
+                        <img src="images/port3.jpg">
+	                    <div class="mask">
+	                        <h2>写一个字</h2>
+	                        <p></p>
+	                        <a href="demo2/index.html" class="info">更多</a>
+	                    </div>
+                	</div>
+				</div>
+			  <div class="col_1_of_3 span_1_of_3">
+					 <div class="view view-fourth">
+                        <img src="images/port4.jpg">
+	                    <div class="mask">
+	                        <h2>平滑切换特效</h2>
+	                        <p></p>
+	                        <a href="demo1/index.html" class="info">更多</a>
+	                    </div>
+                	</div>
+				</div>
+				<div class="col_1_of_3 span_1_of_3">
+					  <div class="view view-fourth">
+                        <img src="images/port5.jpg">
+	                    <div class="mask">
+	                        <h2>桌面系统</h2>
+	                        <p></p>
+	                        <a href="demo3/index.html" class="info">更多</a>
+	                    </div>
+                	</div>
+				</div>
+			<div class="clear"></div>								  						
+			</div>   		 
+   		 </div>
+   		 <!---start-about---->
+		  <div class="about" id="about">
+		  	<div class="wrap">
+		  		<h3>关于我</h3>
+		  		<p class="a">个人信息</p>
+				<!---start-about-time-line---->
+				<div class="about-time-line">
+					<li>
+							<div class="cbp_tmicon img1"> </div>
+							<div class="cbp_tmlabel">
+								<h2>2011.7</h2>
+								<h2>梦开始的地方</h2>
+								<p>如愿进入河南财经政法大学读书,当时对大学的生活十分向往</p>
+							</div>
+					</li>
+					<li>
+							<div class="cbp_tmicon1 img2"> </div>
+							<div class="cbp_tmlabel cbp_tmlabel1">
+								<h2>2015.6</h2>
+								<h2>毕业季</h2>
+								<p>学生时代彻底结束了,心里酸酸的,虽然从大三就开始了工作,但还是抑制不住自己的难过</p>
+							</div>
+					</li><br />
+					<li>
+							<div class="cbp_tmicon2 img3"> </div>
+							<div class="cbp_tmlabel">
+								<h2>2015.7</h2>
+								<h2>进入郑州沃虎科技公司</h2>
+								<p>职责 : 1.协助研发部门，用HTML和CSS完成静态页面的编写;
+      2.对已完成项目进行维护,及时的更新和上架网站模块内容；
+   3.配合后台工作人员实现动态页面,进行前后端的交互工作;
+   4.对代码的合理优化，确保性能良好和浏览器兼容；</p>
+							</div>
+					</li>
+					<li>
+							<div class="cbp_tmicon3 img4"> </div>
+							<div class="cbp_tmlabel cbp_tmlabel1">
+								<h2>2016.10</h2>
+								<h2>离职</h2>
+								<p>想要更好的发展空间,更好的实现自己的梦想,实现自我价值</p>
+							</div>
+					</li>
+					<li>
+							<div class="cbp_tmicon4 img5"> </div>
+					</li>
+					<div class="clear"> </div>
+   		   </div>
+   		 </div>    
+   		</div>
+             <div class="contact" id="contact">
+		  	<div class="wrap">
+		  		<h3>联系我</h3>
+		  		<p class="a"></p>
+				<div class="form">
+				     <div class="form-text">
+					    <input type="text" class="textbox" value="姓名*" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Name';}">
+						<input type="text" class="textbox" value="邮箱*" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'E-mail';}">
+						<input name="Website" type="text" class="Subject" value="网站" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Website';}">
+					</div>
+						 <textarea placeholder="留言*"></textarea>
+						 <div class="clear"> </div>
+						 <input type="submit" value="SEND MESSAGE">
+				 </div>
+   		   </div>
+   		 </div>
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});
+	</script>
+
+		 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+
+</body>
+</html>

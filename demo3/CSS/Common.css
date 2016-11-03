@@ -1,0 +1,83 @@
+body,div,p,ul{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    list-style: none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+p{
+    color: white;
+    text-align: center;
+}
+#start{
+    width:50px;
+    height: 50px;
+    position: absolute;
+    top:615px;left:20px;
+}
+#menu{
+    width:300px;
+    height:300px;
+    background:url('../Img/menu.jpg');
+    background-size:100% 100%;
+    display:none;
+    position: absolute;top:315px;left:20px;
+}
+#rightMenu{
+    width:180px;
+    height: 240px;
+    background: lightgray;
+    box-shadow: 5px 5px 10px gray;
+    position: absolute;
+    display: none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: move;
+}
+#rightMenu li{
+    width:160px;
+    padding-left: 20px;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+
+}
+#rightMenu li:hover{
+    background: blue;
+}
+#drag{
+    width:400px;
+    height:300px;
+    position: absolute;
+    top:100px;
+    left:150px;
+    border: 1px solid black;
+    display: none;
+    cursor: move;
+    text-align: center;
+    line-height: 30px;
+}
+#drag-p{
+   width: 400px;
+    height: 30px;
+    background: black;
+    color: white;
+}
+#drag input{
+    width: 50px;
+    height: 30px;
+    background: red;
+    border:none;
+    position: absolute;right: 0;top:0;
+
+}
+#drag div{
+    width: 400px;
+    height: 270px;
+    background: white;
+}

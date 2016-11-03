@@ -1,0 +1,30 @@
+<div style="position: relative;">
+<div class="detail">
+  <div class="play">
+      <div class="jianbian">
+          <img ng-src={{songinfo.pic_big}} class="images">
+      </div>
+      <div class="buttons">
+          <input type="button" class="btn btn-primary" value={{value}} ng-click="play()">
+          <input type="button" class="btn" value="下载" disabled="true">
+      </div>
+  </div>
+    <div class="musicci">
+        <div>
+            <p ng-repeat="ci in ci">{{ci.substr(10,ci.length-1)}}</p>
+        </div>
+    </div>
+</div>
+<audio ng-src={{title}} controls="controls" id="audio">
+</audio>
+</div>
+<div class="mask" ng-hide="ci.length">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html ng-app="musicApp">
+<head lang="en" >
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="node_modules/jquery-3.0.0.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="app.css"/>
+    <style>
+        .logo{
+            font-size: 30px;
+            font-family: "楷体";
+        }
+
+    </style>
+</head>
+<body  >
+<div class="container">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand logo" href="#" >我的音乐</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-class='{active:type=="new"}'><a href="#/new">新歌</a></li>
+                    <li ng-class='{active:type=="hot"}'><a href="#/hot">热歌</a></li>
+                    <li ng-class='{active:type=="rock"}'><a href="#/rock">摇滚</a></li>
+                    <li ng-class='{active:type=="popular"}'><a href="#/popular">流行</a></li>
+                    <li ng-class='{active:type=="qingge"}'><a href="#/qingge">情歌对唱</a></li>
+                    <li ng-class='{active:type=="tvmusic"}'><a href="#/tvmusic">影视金曲</a></li>
+                    <li ng-class='{active:type=="netmusic"}'><a href="#/netmusic">网络歌曲</a></li>
+                </ul>
+                <form ng-controller="musicController" class="navbar-form navbar-right" role="search" ng-submit="search()">
+                    <div class="form-group">
+                            <input id="text" autocomplete="off" type="text" class="form-control" placeholder="Search..." ng-model="input" ng-blur="leave()" ng-focus="focus()">
+                    </div>
+                    <!--<button type="submit" class="btn btn-default"></button>-->
+                </form>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div id="div" ng-hide="div">
+    </div>
+    <div id="carousel-example-generic" class="carousel slide hs" data-ride="carousel">
+        <div class="fixed">
+
+        </div>
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner ws" role="listbox">
+            <div class="item active">
+                <img style="height: 250px;width: 100%" ng-src="http://p4.music.126.net/2VmjEUaP35hIgFRZ-8qLSQ==/18804947370530840.jpg http://img3.imgtn.bdimg.com/it/u=2867661762,1140153879&fm=21&gp=0.jpg">
+                <!--<img class="fixed" ng-src="http://img3.imgtn.bdimg.com/it/u=2867661762,1140153879&fm=21&gp=0.jpg">-->
+                <div class="carousel-caption">
+                </div>
+            </div>
+            <div class="item">
+                <img style="height: 250px;width: 100%" ng-src="http://p3.music.126.net/zx5egxUHnCycQRnz6zUa4A==/1372190527864043.jpg">
+                <div class="carousel-caption">
+                </div>
+            </div>
+            <div class="item">
+                <img style="height: 250px;width: 100%" ng-src="http://p4.music.126.net/4ET9UNnSvALgIySltqA3Gg==/18555358231026651.jpg" >
+                <div class="carousel-caption">
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-view></ng-view>
+</div>
+
+<script src="./node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="content/content.js"></script>
+<script src="detail/detail.js"></script>
+<script src="search/search.js"></script>
+<script src="http.js"></script>
+<script>
+    $(function () {
+        $('#text').keyup(function () {
+            var text = $('#text').val();
+            var tag = '<ul>';
+            var div = $('#div');
+            ajax();
+            //定义ajax方法
+            function ajax() {
+                $.ajax({
+                    url: "http://tip.soku.com/search_tip_1?query=" + text,
+                    type: 'get',
+                    dataType: 'jsonp',
+                    jsonp: 'jsoncallback',
+                    jsonpCallback: 'message',
+                    success: function (data) {
+                        var r = data.r;
+//                        console.log(r);
+                        var word = '';
+                        for (var i = 0; i < r.length; i++) {
+                            word = r[i].w;
+                            tag += "<li>" + word + "</li>";
+                        }
+                        tag += "</ul>";
+                        div.html(tag);
+                        div.find('li').hover(
+                                function () {
+                                    $(this).css('color', 'red').css('cursor','pointer');
+                                }, function () {
+                                    $(this).css('color', 'black');
+                                }
+                        )
+                        div.find('li').click(function () {
+                            $('#text').val($(this).text());
+                        })
+                    },//成功的回调函数
+                    error: function () {
+                        console.log("错误");
+                    }
+                })
+            }
+            //成功的回调函数
+
+        })
+    })
+
+
+</script>
+</body>
+</html>

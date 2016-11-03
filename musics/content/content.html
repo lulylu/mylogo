@@ -1,0 +1,33 @@
+
+<h1>{{billboard.name}}</h1>
+<div class="row">
+
+    <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="song in music">
+        <!--<input type="text" ng-model='img'>-->
+        <a ng-href="#/detail/{{song.song_id}}" >
+        <div class="thumbnail" >
+            <img ng-src={{song.pic_big}}>
+            <div class="caption">
+                <h3>{{song.title}}</h3>
+                <p>{{song.author}}</p>
+                <p><a href="#" class="btn btn-primary" role="button">播放</a> <a href="#" class="btn btn-default" role="button">下载</a></p>
+            </div>
+        </div>
+        </a>
+    </div>
+</div>
+<div class="mask" ng-hide="music.length==size">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<div ng-show='billboard.billboard_songnum'>
+    <p >总共有{{billboard.billboard_songnum}}条,共{{totalPage}}页</p>
+    <nav style="position: absolute;right: 0px;">
+        <page pageconfig="pageConfig"></page>
+    </nav>
+</div>
